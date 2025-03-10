@@ -1,7 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Admin from './pages/Admin/Admin';
+import User from './pages/User/User';
+
 function App() {
     return (
         <div className="App">
-            <h1>React apps</h1>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<User />}></Route>
+                    <Route path="/admins" element={<Admin />}></Route>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

@@ -1,7 +1,14 @@
 @import 'normalize.css';
+@import 'bootstrap/scss/bootstrap.scss';
+
+$font-family-base: 'TikTokFont', sans-serif;
 
 // Biến
 :root {
+    --primary-color: #3b61eb;
+    --text-color: #6b7790;
+    --hover-dark-color: #244ee9;
+    --hover-light-color: #cdd9ff;
 }
 
 // Reset CSS
@@ -11,9 +18,9 @@
     padding: 0;
 }
 
-html {
-    font-size: 62.5%; // 1rem = 10px
-}
+// html {
+//     font-size: 62.5%; // 1rem = 10px
+// }
 
 body {
     font-family: 'TikTokFont', sans-serif;
