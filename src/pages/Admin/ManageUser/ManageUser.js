@@ -12,13 +12,12 @@ const ManageUser = () => {
             <div className="users-content">
                 <div className="btn-add-new">
                     <button className="btn" onClick={() => setShowModalCreateUser(true)}>
-                        <CiCirclePlus className='icon-add-user'/>
+                        <CiCirclePlus className="icon-add-user" />
                         Thêm mới người dùng
                     </button>
                 </div>
-                <div className="table-users-container">
-                    <ModalCreateUser show={showModalCreateUser} setShow={setShowModalCreateUser} />
-                </div>
+                <div className="table-users-container"></div>
+                <ModalCreateUser show={showModalCreateUser} setShow={setShowModalCreateUser} />
             </div>
         </div>
     );
