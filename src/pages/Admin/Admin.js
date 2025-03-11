@@ -3,6 +3,7 @@ import './Admin.scss';
 import { BsMenuButtonWide } from 'react-icons/bs';
 import { useState } from 'react';
 import AdminHeader from '../../layouts/Header/AdminHeader';
+import { Outlet } from 'react-router-dom';
 
 const Admin = (props) => {
     const [collapsed, setCollapsed] = useState(false);
@@ -17,7 +18,9 @@ const Admin = (props) => {
                     <AdminHeader />
                 </div>
                 <hr style={{ margin: 0 }} />
-                <div className="admin-content-main"></div>
+                <div className="admin-content-main">
+                    <Outlet />
+                </div>
             </div>
         </div>
     );

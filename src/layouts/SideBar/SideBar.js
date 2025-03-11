@@ -21,7 +21,7 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                 }}
             >
                 <span onClick={() => navigate('/')}>
-                    <img src={logo} width="208" height="40" alt="React Bootstrap logo" />
+                    <img src={logo} width="208" height="40" alt="Book Shop logo" />
                 </span>
             </div>
             <hr style={{ margin: 0 }} />
@@ -29,19 +29,12 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
             {/* Nội dung Sidebar */}
             <div style={{ flex: 1 }}>
                 <Menu iconShape="circle">
-                    <MenuItem icon={<MdOutlineDashboardCustomize />}>
+                    <MenuItem icon={<MdOutlineDashboardCustomize />} component={<Link to="/admins" />}>
                         Bảng điều khiển
-                        <Link to="/admins" />
                     </MenuItem>
                     <SubMenu icon={<FaGem />} label="Tính năng">
-                        <MenuItem>
-                            Quản lý người dùng
-                            <Link to="/admins/manage-users" />
-                        </MenuItem>
-                        <MenuItem>
-                            Quản lý sản phẩm
-                            <Link to="/admins/manage-quizzes" />
-                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-users" />}>Quản lý người dùng</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý sản phẩm</MenuItem>
                     </SubMenu>
                 </Menu>
             </div>
