@@ -116,7 +116,7 @@ const ModalCreateUser = (props) => {
                         Đóng
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
-                        Lưu thay đổi
+                        Lưu
                     </Button>
                 </Modal.Footer>
             </Modal>

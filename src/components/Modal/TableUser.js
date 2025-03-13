@@ -38,9 +38,19 @@ const TableUser = (props) => {
                         <td>USER</td>
                         <td>13/3/2025</td>
                         <td>
-                            <Button variant="outline-info">Xem</Button>
-                            <Button variant="outline-info" style={{ margin: '20px' }}>Sửa</Button>
-                            <Button variant="outline-info">Xóa</Button>
+                            <Button variant="outline-info" onClick={() => props.handleClickBtnView()}>
+                                Xem
+                            </Button>
+                            <Button
+                                variant="outline-info"
+                                style={{ margin: '20px' }}
+                                onClick={() => props.handleClickBtnUpdate()}
+                            >
+                                Sửa
+                            </Button>
+                            <Button variant="outline-info" onClick={() => props.handleClickBtnDelete()}>
+                                Xóa
+                            </Button>
                         </td>
                     </tr>
                 </tbody>
