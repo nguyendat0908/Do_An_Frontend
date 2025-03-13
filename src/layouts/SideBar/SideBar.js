@@ -1,6 +1,9 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
-import { FaGem, FaGithub } from 'react-icons/fa';
+import { FaGem, FaGithub, FaUsers, FaBookOpen, FaPencilAlt } from 'react-icons/fa';
+import { BiPackage } from 'react-icons/bi';
+import { MdCategory } from 'react-icons/md';
+import { RiDiscountPercentFill } from 'react-icons/ri';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/Logo.png';
 
@@ -33,13 +36,30 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                         Bảng điều khiển
                     </MenuItem>
                     <SubMenu icon={<FaGem />} label="Tính năng">
-                        <MenuItem component={<Link to="/admins/manage-users" />}>Dashboard</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-users" />}>Quản lý người dùng</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý sản phẩm</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý tác giả</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý đơn hàng</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý danh mục</MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý mã giảm giá</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-users" />}>
+                            <FaUsers style={{ marginRight: '10px' }} />
+                            Quản lý người dùng
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                            <FaBookOpen style={{ marginRight: '10px' }} />
+                            Quản lý sản phẩm
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                            <FaPencilAlt style={{ marginRight: '10px' }} />
+                            Quản lý tác giả
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                            <BiPackage style={{ marginRight: '10px' }} />
+                            Quản lý đơn hàng
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                            <MdCategory style={{ marginRight: '10px' }} />
+                            Quản lý danh mục
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                            <RiDiscountPercentFill style={{ marginRight: '10px' }} />
+                            Quản lý mã giảm giá
+                        </MenuItem>
                     </SubMenu>
                 </Menu>
             </div>
