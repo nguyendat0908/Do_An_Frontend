@@ -6,7 +6,17 @@ import { FiFolderPlus } from 'react-icons/fi';
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setPhone('');
+        setImage('');
+        setAddress('');
+        setPreviewImage('');
+        setRole('USER');
+    };
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

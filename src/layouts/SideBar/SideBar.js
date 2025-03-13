@@ -33,8 +33,13 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                         Bảng điều khiển
                     </MenuItem>
                     <SubMenu icon={<FaGem />} label="Tính năng">
+                        <MenuItem component={<Link to="/admins/manage-users" />}>Dashboard</MenuItem>
                         <MenuItem component={<Link to="/admins/manage-users" />}>Quản lý người dùng</MenuItem>
                         <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý sản phẩm</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý tác giả</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý đơn hàng</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý danh mục</MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>Quản lý mã giảm giá</MenuItem>
                     </SubMenu>
                 </Menu>
             </div>
