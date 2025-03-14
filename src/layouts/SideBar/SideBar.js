@@ -40,23 +40,23 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                             <FaUsers style={{ marginRight: '10px' }} />
                             Quản lý người dùng
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                        <MenuItem component={<Link to="/admins/manage-products" />}>
                             <FaBookOpen style={{ marginRight: '10px' }} />
                             Quản lý sản phẩm
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                        <MenuItem component={<Link to="/admins/manage-authors" />}>
                             <FaPencilAlt style={{ marginRight: '10px' }} />
                             Quản lý tác giả
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                        <MenuItem component={<Link to="/admins/manage-orders" />}>
                             <BiPackage style={{ marginRight: '10px' }} />
                             Quản lý đơn hàng
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                        <MenuItem component={<Link to="/admins/manage-categories" />}>
                             <MdCategory style={{ marginRight: '10px' }} />
                             Quản lý danh mục
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-quizzes" />}>
+                        <MenuItem component={<Link to="/admins/manage-discounts" />}>
                             <RiDiscountPercentFill style={{ marginRight: '10px' }} />
                             Quản lý mã giảm giá
                         </MenuItem>

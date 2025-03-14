@@ -1,4 +1,4 @@
-import '../../pages/Admin/ManageUser/ManageUser.scss';
+import '../../../pages/Admin/ManageUser/ManageUser.scss';
 import Button from 'react-bootstrap/Button';
 
 const TableUser = (props) => {
@@ -11,7 +11,7 @@ const TableUser = (props) => {
                 <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Tên</th>
+                        <th scope="col">Tên người dùng</th>
                         <th scope="col">Vai trò</th>
                         <th scope="col">Ngày tạo</th>
                         <th scope="col">Hành động</th>

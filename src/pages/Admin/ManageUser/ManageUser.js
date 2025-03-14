@@ -1,8 +1,8 @@
-import ModalCreateUser from '../../../components/Modal/ModalCreateUser';
-import ModalDeleteUser from '../../../components/Modal/ModalDeleteUser';
-import ModalUpdateUser from '../../../components/Modal/ModalUpdateUser';
-import ModalViewUser from '../../../components/Modal/ModalViewUser';
-import TableUser from '../../../components/Modal/TableUser';
+import ModalCreateUser from '../../../components/Modal/ModalUser/ModalCreateUser';
+import ModalDeleteUser from '../../../components/Modal/ModalUser/ModalDeleteUser';
+import ModalUpdateUser from '../../../components/Modal/ModalUser/ModalUpdateUser';
+import ModalViewUser from '../../../components/Modal/ModalUser/ModalViewUser';
+import TableUser from '../../../components/Modal/ModalUser/TableUser';
 import './ManageUser.scss';
 import { useState } from 'react';
 import { CiCirclePlus, CiSearch } from 'react-icons/ci';
@@ -35,7 +35,7 @@ const ManageUser = () => {
                         100 <IoPersonOutline />
                     </span>
                 </div>
-                <nav class="navbar navbar-light bg-light navbar-search">
+                <nav className="navbar navbar-light bg-light navbar-search">
                     <CiSearch className="icon-search" />
                     <form className="form-inline form-search">
                         <input className="input-search" type="search" placeholder="Tìm kiếm" aria-label="Search" />
