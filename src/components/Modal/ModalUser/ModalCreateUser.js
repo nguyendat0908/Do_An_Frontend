@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FiFolderPlus } from 'react-icons/fi';
+import axios from 'axios';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -32,6 +33,25 @@ const ModalCreateUser = (props) => {
             setPreviewImage(URL.createObjectURL(event.target.files[0]));
             setImage(event.target.files[0]);
         }
+    };
+
+    const handSubmitCreateUser = async () => {
+        // Validate
+
+        // Call API
+        let data = {
+            email: email,
+            password: password,
+            username: username,
+            address: address,
+            phone: phone,
+            role: role,
+            avatar: image,
+        };
+
+        let res = await axios.post('http://localhost:8080/api/v1/users', data);
+        console.log(res);
+        handleClose();
     };
 
     return (
@@ -115,7 +135,7 @@ const ModalCreateUser = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Đóng
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={() => handSubmitCreateUser()}>
                         Lưu
                     </Button>
                 </Modal.Footer>

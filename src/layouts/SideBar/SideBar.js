@@ -4,6 +4,7 @@ import { FaGem, FaGithub, FaUsers, FaBookOpen, FaPencilAlt } from 'react-icons/f
 import { BiPackage } from 'react-icons/bi';
 import { MdCategory } from 'react-icons/md';
 import { RiDiscountPercentFill } from 'react-icons/ri';
+import { SiAuthelia } from 'react-icons/si';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/Logo.png';
 
@@ -47,6 +48,10 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                         <MenuItem component={<Link to="/admins/manage-authors" />}>
                             <FaPencilAlt style={{ marginRight: '10px' }} />
                             Quản lý tác giả
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-roles" />}>
+                            <SiAuthelia style={{ marginRight: '10px' }} />
+                            Quản lý vai trò
                         </MenuItem>
                         <MenuItem component={<Link to="/admins/manage-orders" />}>
                             <BiPackage style={{ marginRight: '10px' }} />
