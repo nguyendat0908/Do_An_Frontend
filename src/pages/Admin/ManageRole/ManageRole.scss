@@ -1,0 +1,40 @@
+.main-content {
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background-color: var(--hover-light-color);
+            padding: 2px 10px;
+            border-radius: 10px;
+            line-height: normal;
+        }
+    }
+
+    legend {
+        font-size: 16px;
+    }
+
+    .add-new {
+        .more-action {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            margin: 20px 0 10px 0;
+            gap: 10px;
+        }
+    }
+    .list-detail {
+        margin-top: 50px;
+    }
+}

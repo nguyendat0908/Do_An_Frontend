@@ -6,6 +6,7 @@ import DashBoard from './pages/Admin/DashBoard/DashBoard';
 import ManageProduct from './pages/Admin/ManageProduct/ManageProduct';
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
 import ManageAuthor from './pages/Admin/ManageAuthor/ManageAuthor';
+import ManageRole from './pages/Admin/ManageRole/ManageRole';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="manage-products" element={<ManageProduct />} />
                         <Route path="manage-orders" element={<ManageOrder />} />
                         <Route path="manage-authors" element={<ManageAuthor />} />
+                        <Route path="manage-roles" element={<ManageRole />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
