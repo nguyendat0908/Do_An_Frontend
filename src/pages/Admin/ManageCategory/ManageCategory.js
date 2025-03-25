@@ -1,7 +1,6 @@
 import { Button } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
 import '../ManageRole/ManageRole.scss';
-import { FaLock } from 'react-icons/fa';
 import { MdCategory } from 'react-icons/md';
 import { useState } from 'react';
 import TableCategory from '../../../components/Modal/ModalCategory/TableCategory';
