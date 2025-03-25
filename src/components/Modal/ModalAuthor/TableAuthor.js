@@ -11,9 +11,9 @@ const TableAuthor = (props) => {
                 <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Tên sách</th>
-                        <th scope="col">Danh mục</th>
-                        <th scope="col">Ngày xuất bản</th>
+                        <th scope="col">Tên tác giả</th>
+                        <th scope="col">Quê quán</th>
+                        <th scope="col">Số sách trên hệ thống</th>
                         <th scope="col">Hành động</th>
                     </tr>
                 </thead>
@@ -35,8 +35,8 @@ const TableAuthor = (props) => {
                                 </div>
                             </div>
                         </td>
-                        <td>TÌNH YÊU</td>
-                        <td>13/3/2025</td>
+                        <td>Thái Bình</td>
+                        <td>100</td>
                         <td>
                             <Button variant="outline-info" onClick={() => props.handleClickBtnView()}>
                                 Xem

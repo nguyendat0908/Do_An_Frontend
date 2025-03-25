@@ -12,10 +12,10 @@ const ModalDeleteAuthor = (props) => {
         <>
             <Modal show={show} size='lg' onHide={handleClose} backdrop="static">
                 <Modal.Header closeButton>
-                    <Modal.Title>Xóa sách</Modal.Title>
+                    <Modal.Title>Xóa tác giả</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Bạn có chắc chắn muốn xóa sách có tên tên: <b>Đắc nhân tâm</b>?
+                    Bạn có chắc chắn muốn xóa tác giả có tên tên: <b>Đắc nhân tâm</b>?
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

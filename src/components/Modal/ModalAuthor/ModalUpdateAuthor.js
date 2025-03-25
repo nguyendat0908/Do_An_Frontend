@@ -42,64 +42,36 @@ const ModalUpdateAuthor = (props) => {
         <>
             <Modal show={show} onHide={handleClose} size="xl" backdrop="static" className="modal-create-user">
                 <Modal.Header closeButton>
-                    <Modal.Title>Cập nhật sách</Modal.Title>
+                    <Modal.Title>Cập nhật tác giả</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">
-                        <div className="col-md-12">
-                            <label className="form-label">Tên sách</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={name}
-                                onChange={(event) => setName(event.target.value)}
-                            />
-                        </div>
-                        <div className="col-md-12">
-                            <label className="form-label">Mô tả chi tiết sách</label>
-                            <textarea
-                                className="form-control"
-                                rows="4"
-                                value={description}
-                                onChange={(event) => setDescription(event.target.value)}
-                            ></textarea>
+                        <div className="col-md-4">
+                            <label className="form-label">Tên tác giả</label>
+                            <input type="text" className="form-control" />
                         </div>
                         <div className="col-md-4">
-                            <label className="form-label">Số lượng</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                value={quantity}
-                                onChange={(event) => setQuantity(event.target.value)}
-                            />
+                            <label className="form-label">Quê quán</label>
+                            <input type="text" className="form-control" />
                         </div>
-                        <div className="col-4">
-                            <label className="form-label">Giá sách cũ</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                value={oldPrice}
-                                onChange={(event) => setOldPrice(event.target.value)}
-                            />
-                        </div>
-                        <div className="col-4">
-                            <label className="form-label">Giá sách mới</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                value={newPrice}
-                                onChange={(event) => setNewPrice(event.target.value)}
-                            />
+                        <div className="col-md-4">
+                            <label className="form-label">Thể loại</label>
+                            <input type="text" className="form-control" />
                         </div>
                         <div className="col-md-12">
-                            <label className="form-label label-upload" htmlFor="labelUpload">
+                            <label className="form-label">Mô tả về tác giả</label>
+                            <textarea className="form-control" rows="4"></textarea>
+                        </div>
+
+                        <div className="col-md-12">
+                            <label className="form-label label-upload" style={{ pointerEvents: 'none' }}>
                                 <FiFolderPlus />
                                 Tải ảnh lên
                             </label>
-                            <input type="file" hidden id="labelUpload" onChange={(event) => handleUploadFile(event)} />
+                            <input type="file" hidden />
                         </div>
                         <div className="col-md-12 img-preview">
-                            {previewImage ? <img src={previewImage} /> : <span>Ảnh xem trước</span>}
+                            <span>Ảnh xem trước</span>
                         </div>
                     </form>
                 </Modal.Body>
