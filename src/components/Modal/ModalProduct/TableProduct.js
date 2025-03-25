@@ -13,6 +13,7 @@ const TableProduct = (props) => {
                         <th scope="col">STT</th>
                         <th scope="col">Tên sách</th>
                         <th scope="col">Danh mục</th>
+                        <th scope="col">Số hàng trong kho</th>
                         <th scope="col">Ngày xuất bản</th>
                         <th scope="col">Hành động</th>
                     </tr>
@@ -36,6 +37,7 @@ const TableProduct = (props) => {
                             </div>
                         </td>
                         <td>TÌNH YÊU</td>
+                        <td>1.000</td>
                         <td>13/3/2025</td>
                         <td>
                             <Button variant="outline-info" onClick={() => props.handleClickBtnView()}>

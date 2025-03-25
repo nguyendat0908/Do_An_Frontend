@@ -7,6 +7,8 @@ import ManageProduct from './pages/Admin/ManageProduct/ManageProduct';
 import ManageOrder from './pages/Admin/ManageOrder/ManageOrder';
 import ManageAuthor from './pages/Admin/ManageAuthor/ManageAuthor';
 import ManageRole from './pages/Admin/ManageRole/ManageRole';
+import ManageCategory from './pages/Admin/ManageCategory/ManageCategory';
+import ManageDiscount from './pages/Admin/ManageDiscount/ManageDiscount';
 
 function App() {
     return (
@@ -21,6 +23,8 @@ function App() {
                         <Route path="manage-orders" element={<ManageOrder />} />
                         <Route path="manage-authors" element={<ManageAuthor />} />
                         <Route path="manage-roles" element={<ManageRole />} />
+                        <Route path="manage-categories" element={<ManageCategory />} />
+                        <Route path="manage-discounts" element={<ManageDiscount />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

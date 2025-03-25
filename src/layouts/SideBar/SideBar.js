@@ -49,13 +49,13 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                             <FaPencilAlt style={{ marginRight: '10px' }} />
                             Quản lý tác giả
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-roles" />}>
-                            <SiAuthelia style={{ marginRight: '10px' }} />
-                            Quản lý vai trò
-                        </MenuItem>
                         <MenuItem component={<Link to="/admins/manage-orders" />}>
                             <BiPackage style={{ marginRight: '10px' }} />
                             Quản lý đơn hàng
+                        </MenuItem>
+                        <MenuItem component={<Link to="/admins/manage-roles" />}>
+                            <SiAuthelia style={{ marginRight: '10px' }} />
+                            Quản lý vai trò
                         </MenuItem>
                         <MenuItem component={<Link to="/admins/manage-categories" />}>
                             <MdCategory style={{ marginRight: '10px' }} />
