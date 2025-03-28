@@ -1,14 +1,14 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../../assets/images/Logo.png';
+import { CiSearch, CiShoppingBasket } from 'react-icons/ci';
+import Button from 'react-bootstrap/Button';
+import './Header.scss';
+import Search from '../../components/Search/Search';
 
 const Header = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Brand href="#home">
+        <header className="header-main">
+            <div className="navigation-content">
+                <div className="search-content">
                     <img
                         src={logo}
                         width="208"
@@ -16,23 +16,27 @@ const Header = () => {
                         className="d-inline-block align-top"
                         alt="React Bootstrap logo"
                     />
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                    <div style={{ display: 'flex', gap: '26px', alignItems: 'center', justifyContent: 'center' }}>
+                        <Search />
+                        <Button variant="primary" style={{ borderRadius: '16px', height: '42px' }}>
+                            Tìm kiếm
+                        </Button>
+                    </div>
+                    <div className="action">
+                        <div className="action-cart">
+                            <CiShoppingBasket />
+                        </div>
+                        {/* <div className="action-person">
+                            <IoPersonOutline />
+                        </div> */}
+                        <div className="action-login">
+                            <button>Login</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="navigation-category"></div>
+            </div>
+        </header>
     );
 };
 

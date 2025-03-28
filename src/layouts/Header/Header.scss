@@ -1,0 +1,59 @@
+.header-main {
+    padding: 16px 0;
+    box-shadow: 0 0 8px rgba(11, 43, 74, 0.2);
+    .navigation-content {
+        .search-content {
+            max-width: 1330px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .action {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                justify-content: center;
+                .action-cart {
+                    text-align: center;
+                    color: var(--text-color);
+                    font-size: 30px;
+                    width: 48px;
+                    height: 48px;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: var(--hover-dark-color);
+                    }
+                }
+
+                .action-login {
+                    button {
+                        font-size: 16px;
+                        font-weight: 600;
+                        background-color: transparent;
+                        color: var(--text-color);
+                        border: none;
+                        padding: 10px 10px;
+
+                        &:hover {
+                            cursor: pointer;
+                            color: var(--hover-dark-color);
+                        }
+                    }
+                }
+
+                .action-person {
+                    font-size: 24px;
+                    color: var(--text-color);
+                    border: none;
+                    padding: 10px 10px;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: var(--hover-dark-color);
+                    }
+                }
+            }
+        }
+    }
+}
