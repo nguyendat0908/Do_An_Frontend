@@ -1,10 +1,17 @@
 import logo from '../../assets/images/Logo.png';
-import { CiSearch, CiShoppingBasket } from 'react-icons/ci';
+import { CiShoppingBasket } from 'react-icons/ci';
+import { IoIosArrowDown } from 'react-icons/io';
 import Button from 'react-bootstrap/Button';
 import './Header.scss';
 import Search from '../../components/Search/Search';
+import Tippy from '@tippyjs/react/headless';
+import { useState } from 'react';
+import { IoPersonOutline } from 'react-icons/io5';
 
 const Header = () => {
+    const [visible, setVisible] = useState(false);
+    const show = () => setVisible(true);
+    const hide = () => setVisible(false);
     return (
         <header className="header-main">
             <div className="navigation-content">
@@ -15,6 +22,7 @@ const Header = () => {
                         height="40"
                         className="d-inline-block align-top"
                         alt="React Bootstrap logo"
+                        style={{ cursor: 'pointer' }}
                     />
                     <div style={{ display: 'flex', gap: '26px', alignItems: 'center', justifyContent: 'center' }}>
                         <Search />
@@ -26,15 +34,76 @@ const Header = () => {
                         <div className="action-cart">
                             <CiShoppingBasket />
                         </div>
-                        {/* <div className="action-person">
-                            <IoPersonOutline />
-                        </div> */}
+                        {/* <Tippy
+                            interactive={true}
+                            visible={visible}
+                            onClickOutside={hide}
+                            render={(attrs) => (
+                                <div className="show-info" tabIndex="-1" {...attrs}>
+                                    <IoPersonOutline className="info-icon" />
+                                    <div className="info-buy">
+                                        <p>Mua hàng</p>
+                                        <a>Lịch sử mua hàng</a>
+                                    </div>
+                                    <div className="info-myAccount">
+                                        <p>Tài khoản</p>
+                                        <a>Tài khoản của tôi</a>
+                                    </div>
+                                    <div className="logout">
+                                        <a>Đăng xuất</a>
+                                    </div>
+                                </div>
+                            )}
+                        >
+                            <div className="action-person" onClick={visible ? hide : show}>
+                                <IoPersonOutline />
+                            </div>
+                        </Tippy> */}
                         <div className="action-login">
-                            <button>Login</button>
+                            <button>Đăng nhập</button>
                         </div>
                     </div>
                 </div>
-                <div className="navigation-category"></div>
+                <div className="navigation-category">
+                    <div className="category-items">
+                        <a className="category-items-link">Văn học</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Tâm lý - Kỹ năng sống</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Khoa học - Lịch sử</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Thiếu nhi</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Tâm linh - Triết học</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Truyện tranh - Manga</a>
+                    </div>
+                    <div className="category-items">
+                        <a className="category-items-link">Đầu tư</a>
+                    </div>
+                    <Tippy
+                        placement="bottom-end"
+                        interactive={true}
+                        render={(attrs) => (
+                            <div className="show-more-category" tabIndex="-1" {...attrs}>
+                                <a className="more-category-items-link">Công nghệ lập trình</a>
+                                <a className="more-category-items-link">Xem tất cả</a>
+                            </div>
+                        )}
+                    >
+                        <div className="category-items">
+                            <div className="category-items-title">Xem thêm</div>
+                            <div className="category-items-icon">
+                                <IoIosArrowDown />
+                            </div>
+                        </div>
+                    </Tippy>
+                </div>
             </div>
         </header>
     );
