@@ -1,0 +1,89 @@
+.modal-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+
+    h3 {
+        font-weight: 600;
+        padding-top: 30px;
+    }
+
+    .modal-login-sso {
+        width: 100%;
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+            padding: 10px 30px;
+            border: 1px solid #c0c0c2;
+            background-color: #fff;
+            border-radius: 10px;
+            font-size: 16px;
+            color: var(--primary-color);
+
+            &:hover {
+                background-color: #f4f6fe;
+            }
+        }
+    }
+
+    .modal-separate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-size: 14px;
+        color: var(--text-color);
+    }
+
+    .modal-login-normal {
+        width: 100%;
+
+        .form-login {
+            .forgot-link {
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                margin-bottom: 15px;
+
+                a {
+                    text-decoration: underline;
+                    color: var(--text-color);
+                    cursor: pointer;
+                }
+            }
+
+            button {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .info-bonus {
+                p {
+                    text-align: center;
+                    margin: auto;
+                    font-size: 14px;
+                    color: var(--text-color);
+                }
+            }
+
+            .modal-footer-title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 15px 0;
+                gap: 8px;
+
+                a {
+                    text-decoration: underline;
+                    color: var(--primary-color);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -6,12 +6,23 @@ import './Header.scss';
 import Search from '../../components/Search/Search';
 import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
-import { IoPersonOutline } from 'react-icons/io5';
+import ModalLogin from '../../components/Modal/ModalLogin';
+import ModalRegister from '../../components/Modal/ModalRegister';
+import ModalForgotPassword from '../../components/Modal/ModalForgotPassword';
 
 const Header = () => {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
+    const [showModalLogin, setShowModalLogin] = useState(false);
+    const [showModalRegister, setShowModalRegister] = useState(false);
+    const [showModalForgotPassword, setShowModalForgotPassword] = useState(false);
+
+    const handleShowLogin = () => {
+        setShowModalLogin(true);
+        setShowModalRegister(false);
+        setShowModalForgotPassword(false);
+    };
     return (
         <header className="header-main">
             <div className="navigation-content">
@@ -60,7 +71,19 @@ const Header = () => {
                             </div>
                         </Tippy> */}
                         <div className="action-login">
-                            <button>Đăng nhập</button>
+                            <button onClick={handleShowLogin}>Đăng nhập</button>
+                            <ModalLogin
+                                show={showModalLogin}
+                                setShow={setShowModalLogin}
+                                setShowRegister={setShowModalRegister}
+                                setShowForgotPassword={setShowModalForgotPassword}
+                            />
+                            <ModalRegister
+                                show={showModalRegister}
+                                setShow={setShowModalRegister}
+                                setShowLogin={setShowModalLogin}
+                            />
+                            <ModalForgotPassword show={showModalForgotPassword} setShow={setShowModalForgotPassword} />
                         </div>
                     </div>
                 </div>

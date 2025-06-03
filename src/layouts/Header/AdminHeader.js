@@ -11,7 +11,7 @@ const AdminHeader = () => {
             <Container>
                 <Nav className="me-auto">
                     <NavDropdown title={<IoPersonOutline size={22} />} id="basic-nav-dropdown" align="end">
-                        <NavDropdown.Item href="#action/3.1">Đăng xuất</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Đăng xuất</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Container>
