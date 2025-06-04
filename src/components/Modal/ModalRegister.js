@@ -61,7 +61,7 @@ const ModalRegister = (props) => {
                                 style={{ outline: 'none', boxShadow: 'none' }}
                             />
                         </div>
-                        <button className="btn btn-primary">Đăng nhập</button>
+                        <button className="btn btn-primary">Đăng ký</button>
                         <div className="info-bonus">
                             <p>Đồng ý với điều khoản sử dụng và thông báo về quyền riêng tư của BookShop.</p>
                         </div>
