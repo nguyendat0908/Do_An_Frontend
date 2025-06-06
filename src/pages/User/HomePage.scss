@@ -19,5 +19,9 @@
         .chatbot {
             height: 100px;
         }
+        .items {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

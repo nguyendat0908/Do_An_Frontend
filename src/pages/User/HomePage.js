@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Header from '../../layouts/Header/Header';
 import './HomePage.scss';
 import ChatBotAI from '../../components/ChatBotAI/ChatBotAI';
+import BookList from '../../components/Book/BookList';
 
 const HomePage = () => {
     return (
@@ -28,6 +29,9 @@ const HomePage = () => {
                 </div>
                 <div className="chatbot">
                     <ChatBotAI />
+                </div>
+                <div className="items">
+                    <BookList />
                 </div>
             </div>
             <div className="footer-container"></div>

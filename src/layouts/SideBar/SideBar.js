@@ -5,11 +5,13 @@ import { BiPackage } from 'react-icons/bi';
 import { MdCategory } from 'react-icons/md';
 import { RiDiscountPercentFill } from 'react-icons/ri';
 import { SiAuthelia } from 'react-icons/si';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../assets/images/Logo.png';
+import './SideBar.scss';
 
 const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
     const navigate = useNavigate();
+    const location = useLocation(); // Lấy thông tin đường dẫn hiện tại
 
     return (
         <Sidebar collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar}>
@@ -33,35 +35,60 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
             {/* Nội dung Sidebar */}
             <div style={{ flex: 1 }}>
                 <Menu iconShape="circle">
-                    <MenuItem icon={<MdOutlineDashboardCustomize />} component={<Link to="/admins" />}>
+                    <MenuItem
+                        icon={<MdOutlineDashboardCustomize />}
+                        component={<Link to="/admins" />}
+                        active={location.pathname === '/admins'} // Kiểm tra đường dẫn hiện tại
+                    >
                         Bảng điều khiển
                     </MenuItem>
                     <SubMenu icon={<FaGem />} label="Tính năng">
-                        <MenuItem component={<Link to="/admins/manage-users" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-users" />}
+                            active={location.pathname === '/admins/manage-users'}
+                        >
                             <FaUsers style={{ marginRight: '10px' }} />
                             Quản lý người dùng
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-products" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-products" />}
+                            active={location.pathname === '/admins/manage-products'}
+                        >
                             <FaBookOpen style={{ marginRight: '10px' }} />
                             Quản lý sản phẩm
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-authors" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-authors" />}
+                            active={location.pathname === '/admins/manage-authors'}
+                        >
                             <FaPencilAlt style={{ marginRight: '10px' }} />
                             Quản lý tác giả
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-orders" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-orders" />}
+                            active={location.pathname === '/admins/manage-orders'}
+                        >
                             <BiPackage style={{ marginRight: '10px' }} />
                             Quản lý đơn hàng
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-roles" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-roles" />}
+                            active={location.pathname === '/admins/manage-roles'}
+                        >
                             <SiAuthelia style={{ marginRight: '10px' }} />
                             Quản lý vai trò
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-categories" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-categories" />}
+                            active={location.pathname === '/admins/manage-categories'}
+                        >
                             <MdCategory style={{ marginRight: '10px' }} />
                             Quản lý danh mục
                         </MenuItem>
-                        <MenuItem component={<Link to="/admins/manage-discounts" />}>
+                        <MenuItem
+                            component={<Link to="/admins/manage-discounts" />}
+                            active={location.pathname === '/admins/manage-discounts'}
+                        >
                             <RiDiscountPercentFill style={{ marginRight: '10px' }} />
                             Quản lý mã giảm giá
                         </MenuItem>
