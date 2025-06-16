@@ -31,7 +31,10 @@ const HomePage = () => {
                     <ChatBotAI />
                 </div>
                 <div className="items">
-                    <BookList />
+                    <BookList title={'Danh sách'} showViewAll={true} />
+                    <BookList title={'Gợi ý cho bạn'} />
+                    <BookList title={'Sách bán chạy nhất'} />
+                    <BookList title={'Sách mới nhất'} />
                 </div>
             </div>
             <div className="footer-container"></div>

@@ -10,7 +10,7 @@ import 'tippy.js/animations/shift-away.css';
 const BookCard = () => {
     return (
         <Card className="border shadow-sm card-wrapper">
-            <Card.Img variant="top" src={demoBookPic} style={{ width: '11rem', height: '11rem' }} />
+            <Card.Img variant="top" src={demoBookPic} style={{ width: '100%', height: '100%' }} />
             <Card.Body style={{ padding: '0', display: 'flex', flexDirection: 'column' }}>
                 <div className="card-header">
                     <span>Nguyễn Hoàng Đạt</span>

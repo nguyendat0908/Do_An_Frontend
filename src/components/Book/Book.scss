@@ -1,19 +1,31 @@
 .book-wrapper {
-    margin-bottom: 160px;
-    span {
-        font-size: 30px;
-        font-weight: bold;
+    margin-bottom: 40px;
+    .title-container {
+        display: flex;
+        justify-content: space-between; /* Pushes title to left and link to right */
+        align-items: center; /* Vertically centers the title and link */
+        margin-bottom: 10px; /* Optional: Adds space between title/link and book-list */
+        span {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .view-all-link {
+            font-size: 16px;
+            color: var(--primary-color);
+        }
     }
     .book-list {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 equal-width columns */
+        gap: 10px; /* Spacing between grid items */
         margin: 20px 0 20px 0;
 
         .card-wrapper {
             border-radius: 12px;
             overflow: hidden;
-            width: 11rem;
+            width: 100%; /* Full width of each grid cell */
+            flex-shrink: 0; /* Not needed with grid, but kept for consistency */
+            cursor: pointer;
 
             .card-header {
                 display: flex;
@@ -62,6 +74,12 @@
                 .cart-icon {
                     font-size: 22px;
                     color: var(--hover-dark-color);
+                    padding: 4px 10px;
+                    border-radius: 6px;
+
+                    &:hover {
+                        background-color: var(--hover-light-color);
+                    }
                 }
             }
         }

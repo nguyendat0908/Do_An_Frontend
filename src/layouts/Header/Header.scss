@@ -1,6 +1,11 @@
 .header-main {
     padding: 16px 0;
     box-shadow: 0 0 8px rgba(11, 43, 74, 0.2);
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+    width: 100%;
+
     .navigation-content {
         max-width: 1330px;
         margin: 0 auto;
