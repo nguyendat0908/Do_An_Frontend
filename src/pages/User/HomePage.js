@@ -6,6 +6,7 @@ import Header from '../../layouts/Header/Header';
 import './HomePage.scss';
 import ChatBotAI from '../../components/ChatBotAI/ChatBotAI';
 import BookList from '../../components/Book/BookList';
+import Footer from '../../layouts/Footer/Footer';
 
 const HomePage = () => {
     return (
@@ -37,7 +38,9 @@ const HomePage = () => {
                     <BookList title={'Sách mới nhất'} />
                 </div>
             </div>
-            <div className="footer-container"></div>
+            <div className="footer-container">
+                <Footer />
+            </div>
         </div>
     );
 };
