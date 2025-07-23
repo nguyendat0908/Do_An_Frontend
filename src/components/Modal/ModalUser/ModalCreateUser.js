@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FiFolderPlus } from 'react-icons/fi';
 import axios from 'axios';
+import ButtonToggle from '../../Button_Toggle/ButtonToggle';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -17,6 +18,7 @@ const ModalCreateUser = (props) => {
         setAddress('');
         setPreviewImage('');
         setRole('USER');
+        setIsActive(false);
     };
 
     const [email, setEmail] = useState('');
@@ -27,6 +29,7 @@ const ModalCreateUser = (props) => {
     const [image, setImage] = useState('');
     const [role, setRole] = useState('USER');
     const [previewImage, setPreviewImage] = useState('');
+    const [isActive, setIsActive] = useState(false);
 
     const handleUploadFile = (event) => {
         if (event.target && event.target.files && event.target.files[0]) {
@@ -35,23 +38,29 @@ const ModalCreateUser = (props) => {
         }
     };
 
-    const handSubmitCreateUser = async () => {
+    const handSubmitCreateUser = () => {
         // Validate
 
         // Call API
         let data = {
+            name: username,
             email: email,
             password: password,
-            username: username,
             address: address,
             phone: phone,
-            role: role,
-            avatar: image,
+            active: isActive ? true : false,
         };
 
-        let res = await axios.post('http://localhost:8080/api/v1/users', data);
-        console.log(res);
-        handleClose();
+        try {
+            let res = axios.post('http://localhost:8888/api/v1/users', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            handleClose();
+        } catch (error) {
+            console.error('Error creating user:', error);
+        }
     };
 
     return (
@@ -119,12 +128,16 @@ const ModalCreateUser = (props) => {
                                 <option value="ADMIN">ADMIN</option>
                             </select>
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <label className="form-label label-upload" htmlFor="labelUpload">
                                 <FiFolderPlus />
                                 Tải ảnh lên
                             </label>
                             <input type="file" hidden id="labelUpload" onChange={(event) => handleUploadFile(event)} />
+                        </div>
+                        <div className="col-md-6" style={{ display: 'flex', alignItems: 'center' }}>
+                            <label className="form-label">Trạng thái</label>
+                            <ButtonToggle isActive={isActive} setIsActive={setIsActive} />
                         </div>
                         <div className="col-md-12 img-preview">
                             {previewImage ? <img src={previewImage} /> : <span>Ảnh xem trước</span>}

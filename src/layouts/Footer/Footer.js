@@ -1,8 +1,10 @@
 import './Footer.scss';
 import logo from '../../assets/images/Logo.png';
 import { FaFacebook, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate = useNavigate();
     return (
         <div className="footer-wrapper">
             <div className="footer-content">
@@ -20,7 +22,7 @@ const Footer = () => {
                     <div>
                         <h4 style={{ fontSize: '20px', fontWeight: '600', paddingBottom: '20px' }}>Cửa hàng</h4>
                         <ul>
-                            <li>Về chúng tôi</li>
+                            <li onClick={() => navigate('/about')}>Về chúng tôi</li>
                             <li>Blog</li>
                             <li>Niềm tin và an toàn</li>
                             <li>Danh mục</li>
@@ -56,10 +58,10 @@ const Footer = () => {
                     <p>Chính sách</p>
                 </div>
                 <div className="footer-social-media">
-                    <FaFacebook className='icon'/>
-                    <FaYoutube className='icon'/>
-                    <FaInstagram className='icon'/>
-                    <FaTiktok className='icon'/>
+                    <FaFacebook className="icon" />
+                    <FaYoutube className="icon" />
+                    <FaInstagram className="icon" />
+                    <FaTiktok className="icon" />
                 </div>
             </div>
         </div>

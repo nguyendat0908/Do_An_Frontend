@@ -8,7 +8,8 @@ import ManageAuthor from './pages/Admin/ManageAuthor/ManageAuthor';
 import ManageRole from './pages/Admin/ManageRole/ManageRole';
 import ManageCategory from './pages/Admin/ManageCategory/ManageCategory';
 import ManageDiscount from './pages/Admin/ManageDiscount/ManageDiscount';
-import HomePage from './pages/User/HomePage';
+import HomePage from './pages/Home_Page/HomePage';
+import AboutUs from './pages/About_Us/AboutUs';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomePage />}></Route>
+                    <Route path="/about" element={<AboutUs />}></Route>
                     <Route path="admins" element={<Admin />}>
                         <Route index element={<DashBoard />} />
                         <Route path="manage-users" element={<ManageUser />} />

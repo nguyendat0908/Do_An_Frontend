@@ -104,7 +104,7 @@ const SideBar = ({ collapsed, toggled, handleToggleSidebar }) => {
                 }}
             >
                 <a
-                    href="https://github.com/nguyendat0908/Project-ReactJS"
+                    href="https://github.com/nguyendat0908"
                     target="_blank"
                     className="sidebar-btn"
                     rel="noopener noreferrer"
