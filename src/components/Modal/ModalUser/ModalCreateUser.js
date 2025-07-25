@@ -38,23 +38,23 @@ const ModalCreateUser = (props) => {
         }
     };
 
-    const handSubmitCreateUser = () => {
+    const handSubmitCreateUser = async () => {
         // Validate
 
         // Call API
-        let data = {
-            name: username,
-            email: email,
-            password: password,
-            address: address,
-            phone: phone,
-            active: isActive ? true : false,
-        };
+        const data = new FormData();
+        data.append('name', username);
+        data.append('email', email);
+        data.append('password', password);
+        data.append('address', address);
+        data.append('phone', phone);
+        data.append('active', isActive ? 'true' : 'false');
+        data.append('avatar', image);
 
         try {
-            let res = axios.post('http://localhost:8888/api/v1/users', data, {
+            let res = await axios.post('http://localhost:8888/api/v1/users', data, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             handleClose();
