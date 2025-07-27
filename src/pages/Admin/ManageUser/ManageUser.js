@@ -17,6 +17,7 @@ const ManageUser = (props) => {
 
     const [listUsers, setListUsers] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState(null);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
         getListUsers();
@@ -37,11 +38,13 @@ const ManageUser = (props) => {
         setShowModalViewUser(true);
     };
 
-    const handleClickBtnUpdate = () => {
+    const handleClickBtnUpdate = (user) => {
+        setSelectedUser(user);
         setShowModalUpdateUser(true);
     };
 
-    const handleClickBtnDelete = () => {
+    const handleClickBtnDelete = (user) => {
+        setSelectedUser(user);
         setShowModalDeleteUser(true);
     };
 
@@ -82,8 +85,18 @@ const ManageUser = (props) => {
                     getListUsers={getListUsers}
                 />
                 <ModalViewUser show={showModalViewUser} setShow={setShowModalViewUser} userId={selectedUserId} />
-                <ModalUpdateUser show={showModalUpdateUser} setShow={setShowModalUpdateUser} />
-                <ModalDeleteUser show={showModalDeleteUser} setShow={setShowModalDeleteUser} />
+                <ModalUpdateUser
+                    show={showModalUpdateUser}
+                    setShow={setShowModalUpdateUser}
+                    user={selectedUser}
+                    getListUsers={getListUsers}
+                />
+                <ModalDeleteUser
+                    show={showModalDeleteUser}
+                    setShow={setShowModalDeleteUser}
+                    user={selectedUser}
+                    getListUsers={getListUsers}
+                />
             </div>
         </div>
     );

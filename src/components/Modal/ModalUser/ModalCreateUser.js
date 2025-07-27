@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { FiFolderPlus } from 'react-icons/fi';
 import ButtonToggle from '../../Button_Toggle/ButtonToggle';
 import { toast } from 'react-toastify';
-import { postCreateUser } from '../../../services/UserService';
+import { createUser } from '../../../services/UserService';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -41,7 +41,7 @@ const ModalCreateUser = (props) => {
 
     const handSubmitCreateUser = async () => {
         try {
-            let res = await postCreateUser(username, email, password, address, phone, isActive, image);
+            let res = await createUser(username, email, password, address, phone, isActive, image);
 
             if (res.data && res.data.code === 200) {
                 toast.success(res.data.message);

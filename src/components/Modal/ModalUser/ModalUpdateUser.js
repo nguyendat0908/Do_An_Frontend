@@ -1,13 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { FiFolderPlus } from 'react-icons/fi';
+import ButtonToggle from '../../Button_Toggle/ButtonToggle';
+import { toast } from 'react-toastify';
+import { updateUser } from '../../../services/UserService';
 
 const ModalUpdateUser = (props) => {
-    const { show, setShow } = props;
+    const { show, setShow, user } = props;
+
+    const [isActive, setIsActive] = useState(false);
 
     const handleClose = () => {
+        setIsActive(false); // Reset trạng thái khi đóng modal
         setShow(false);
+    };
+
+    useEffect(() => {
+        if (user) {
+            setIsActive(user.active); // Lấy trạng thái khi modal mở
+        }
+    }, [user]);
+
+    const handleUpdateUser = async () => {
+        try {
+            let res = await updateUser(user.id, isActive);
+            if (res.data && res.data.code === 200) {
+                toast.success(res.data.message);
+                handleClose();
+                await props.getListUsers();
+            }
+        } catch (error) {
+            console.error('Lỗi khi gọi API:', error);
+        }
     };
 
     return (
@@ -18,34 +42,9 @@ const ModalUpdateUser = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">
-                        <div className="col-md-6">
-                            <label className="form-label">Tên người dùng</label>
-                            <input type="text" className="form-control" />
-                        </div>
-                        <div className="col-6">
-                            <label className="form-label">Địa chỉ</label>
-                            <input type="text" className="form-control" />
-                        </div>
-                        <div className="col-6">
-                            <label className="form-label">Số điện thoại</label>
-                            <input type="text" className="form-control" />
-                        </div>
-                        <div className="col-md-6">
-                            <label className="form-label">Vai trò</label>
-                            <select id="inputState" className="form-select">
-                                <option value="USER">USER</option>
-                                <option value="ADMIN">ADMIN</option>
-                            </select>
-                        </div>
-                        <div className="col-md-12">
-                            <label className="form-label label-upload">
-                                <FiFolderPlus />
-                                Tải ảnh lên
-                            </label>
-                            <input type="file" hidden />
-                        </div>
-                        <div className="col-md-12 img-preview">
-                            <span>Ảnh xem trước</span>
+                        <div className="col-md-12" style={{ display: 'flex', alignItems: 'center' }}>
+                            <label className="form-label">Trạng thái</label>
+                            <ButtonToggle isActive={isActive} setIsActive={setIsActive} />
                         </div>
                     </form>
                 </Modal.Body>
@@ -53,7 +52,7 @@ const ModalUpdateUser = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Đóng
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={() => handleUpdateUser()}>
                         Lưu thay đổi
                     </Button>
                 </Modal.Footer>

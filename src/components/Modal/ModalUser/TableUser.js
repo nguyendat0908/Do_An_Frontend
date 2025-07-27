@@ -47,11 +47,11 @@ const TableUser = (props) => {
                                         <Button
                                             variant="outline-info"
                                             style={{ margin: '20px' }}
-                                            onClick={() => props.handleClickBtnUpdate()}
+                                            onClick={() => props.handleClickBtnUpdate(item)}
                                         >
                                             Sửa
                                         </Button>
-                                        <Button variant="outline-info" onClick={() => props.handleClickBtnDelete()}>
+                                        <Button variant="outline-info" onClick={() => props.handleClickBtnDelete(item)}>
                                             Xóa
                                         </Button>
                                     </td>
