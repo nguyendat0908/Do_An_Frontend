@@ -3,18 +3,37 @@ import ModalDeleteUser from '../../../components/Modal/ModalUser/ModalDeleteUser
 import ModalUpdateUser from '../../../components/Modal/ModalUser/ModalUpdateUser';
 import ModalViewUser from '../../../components/Modal/ModalUser/ModalViewUser';
 import TableUser from '../../../components/Modal/ModalUser/TableUser';
+import { useEffect, useState } from 'react';
 import './ManageUser.scss';
-import { useState } from 'react';
 import { CiCirclePlus, CiSearch } from 'react-icons/ci';
 import { IoPersonOutline } from 'react-icons/io5';
+import { getAllUsers } from '../../../services/UserService';
 
-const ManageUser = () => {
+const ManageUser = (props) => {
     const [showModalCreateUser, setShowModalCreateUser] = useState(false);
     const [showModalViewUser, setShowModalViewUser] = useState(false);
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
     const [showModalDeleteUser, setShowModalDeleteUser] = useState(false);
 
-    const handleClickBtnView = () => {
+    const [listUsers, setListUsers] = useState([]);
+    const [selectedUserId, setSelectedUserId] = useState(null);
+
+    useEffect(() => {
+        getListUsers();
+    }, []);
+
+    const getListUsers = async () => {
+        let res = await getAllUsers();
+        console.log('Check res get all users: ', res);
+        if (res.data && res.data.code === 200) {
+            setListUsers(res.data.data.result);
+        } else {
+            setListUsers([]);
+        }
+    };
+
+    const handleClickBtnView = (userId) => {
+        setSelectedUserId(userId);
         setShowModalViewUser(true);
     };
 
@@ -54,10 +73,15 @@ const ManageUser = () => {
                         handleClickBtnView={handleClickBtnView}
                         handleClickBtnUpdate={handleClickBtnUpdate}
                         handleClickBtnDelete={handleClickBtnDelete}
+                        listUsers={listUsers}
                     />
                 </div>
-                <ModalCreateUser show={showModalCreateUser} setShow={setShowModalCreateUser} />
-                <ModalViewUser show={showModalViewUser} setShow={setShowModalViewUser} />
+                <ModalCreateUser
+                    show={showModalCreateUser}
+                    setShow={setShowModalCreateUser}
+                    getListUsers={getListUsers}
+                />
+                <ModalViewUser show={showModalViewUser} setShow={setShowModalViewUser} userId={selectedUserId} />
                 <ModalUpdateUser show={showModalUpdateUser} setShow={setShowModalUpdateUser} />
                 <ModalDeleteUser show={showModalDeleteUser} setShow={setShowModalDeleteUser} />
             </div>

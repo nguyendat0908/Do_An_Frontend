@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FiFolderPlus } from 'react-icons/fi';
-import axios from 'axios';
 import ButtonToggle from '../../Button_Toggle/ButtonToggle';
 import { toast } from 'react-toastify';
+import { postCreateUser } from '../../../services/UserService';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -40,27 +40,13 @@ const ModalCreateUser = (props) => {
     };
 
     const handSubmitCreateUser = async () => {
-        const data = new FormData();
-        data.append('name', username);
-        data.append('email', email);
-        data.append('password', password);
-        data.append('address', address);
-        data.append('phone', phone);
-        data.append('active', isActive ? 'true' : 'false');
-        if (image && image.name) {
-            data.append('avatar', image);
-        }
-
         try {
-            let res = await axios.post('http://localhost:8888/api/v1/users', data, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            let res = await postCreateUser(username, email, password, address, phone, isActive, image);
 
             if (res.data && res.data.code === 200) {
                 toast.success(res.data.message);
                 handleClose();
+                await props.getListUsers();
             }
         } catch (error) {
             if (error.response && error.response.data) {

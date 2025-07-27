@@ -111,6 +111,22 @@
             flex: 1;
             overflow-y: auto;
             padding: 20px;
+
+            // ManageUser.scss
+
+            .no-data-message {
+                text-align: center;
+                font-size: 1.25rem;
+                font-weight: 500;
+                padding: 40px 20px;
+                color: #6c757d;
+                margin-top: 20px;
+
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 }
