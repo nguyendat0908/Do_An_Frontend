@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { FiFolderPlus } from 'react-icons/fi';
 import axios from 'axios';
 import ButtonToggle from '../../Button_Toggle/ButtonToggle';
+import { toast } from 'react-toastify';
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
@@ -14,7 +15,7 @@ const ModalCreateUser = (props) => {
         setEmail('');
         setPassword('');
         setPhone('');
-        setImage('');
+        setImage(null);
         setAddress('');
         setPreviewImage('');
         setRole('USER');
@@ -39,9 +40,6 @@ const ModalCreateUser = (props) => {
     };
 
     const handSubmitCreateUser = async () => {
-        // Validate
-
-        // Call API
         const data = new FormData();
         data.append('name', username);
         data.append('email', email);
@@ -49,7 +47,9 @@ const ModalCreateUser = (props) => {
         data.append('address', address);
         data.append('phone', phone);
         data.append('active', isActive ? 'true' : 'false');
-        data.append('avatar', image);
+        if (image && image.name) {
+            data.append('avatar', image);
+        }
 
         try {
             let res = await axios.post('http://localhost:8888/api/v1/users', data, {
@@ -57,9 +57,25 @@ const ModalCreateUser = (props) => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            handleClose();
+
+            if (res.data && res.data.code === 200) {
+                toast.success(res.data.message);
+                handleClose();
+            }
         } catch (error) {
-            console.error('Error creating user:', error);
+            if (error.response && error.response.data) {
+                const { message } = error.response.data;
+
+                if (Array.isArray(message)) {
+                    message.forEach((msg) => toast.error(msg));
+                } else if (typeof message === 'string') {
+                    toast.error(message);
+                } else {
+                    toast.error('Đã xảy ra lỗi không mong muốn');
+                }
+            } else {
+                toast.error('Không thể kết nối tới server!');
+            }
         }
     };
 
