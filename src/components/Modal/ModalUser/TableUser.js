@@ -2,9 +2,10 @@ import '../../../pages/Admin/ManageUser/ManageUser.scss';
 import Button from 'react-bootstrap/Button';
 import { FaRegSadCry } from 'react-icons/fa';
 import { useState } from 'react';
+import DataPagination from '../../Pagination/DataPagination';
 
 const TableUser = (props) => {
-    const { listUsers } = props;
+    const { listUsers, pageCount, handlePageClick } = props;
     return (
         <>
             <table
@@ -13,7 +14,7 @@ const TableUser = (props) => {
             >
                 <thead>
                     <tr>
-                        <th scope="col">STT</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Tên người dùng</th>
                         <th scope="col">Vai trò</th>
                         <th scope="col">Ngày tạo</th>
@@ -26,7 +27,7 @@ const TableUser = (props) => {
                         listUsers.map((item, index) => {
                             return (
                                 <tr key={`table-user-${index}`}>
-                                    <td scope="row">{index + 1}</td>
+                                    <td scope="row">{item.id}</td>
                                     <td>
                                         <div className="user-info">
                                             <div>
@@ -41,7 +42,10 @@ const TableUser = (props) => {
                                     <td>USER</td>
                                     <td>{new Date(item.createdAt).toLocaleDateString('vi-VN')}</td>
                                     <td>
-                                        <Button variant="outline-info" onClick={() => props.handleClickBtnView(item.id)}>
+                                        <Button
+                                            variant="outline-info"
+                                            onClick={() => props.handleClickBtnView(item.id)}
+                                        >
                                             Xem
                                         </Button>
                                         <Button
@@ -66,6 +70,9 @@ const TableUser = (props) => {
                     Không có dữ liệu ...
                 </div>
             )}
+            <div className='pagination-container d-flex justify-content-center'>
+                <DataPagination pageCount={props.pageCount} handlePageClick={props.handlePageClick} />
+            </div>
         </>
     );
 };

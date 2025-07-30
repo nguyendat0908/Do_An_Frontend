@@ -19,8 +19,12 @@ const createUser = (username, email, password, address, phone, isActive, image) 
     });
 };
 
-const getAllUsers = () => {
-    return axios.get('api/v1/users');
+const getAllUsers = (page, size, filter = '') => {
+    let url = `api/v1/users?page=${page}&size=${size}`;
+    if (filter) {
+        url += `&filter=email~'${filter}'`;
+    }
+    return axios.get(url);
 };
 
 const getUserById = (userId) => {

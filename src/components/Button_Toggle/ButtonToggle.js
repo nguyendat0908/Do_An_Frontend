@@ -9,7 +9,7 @@ const ButtonToggle = ({ isActive, setIsActive, disabled = false }) => {
                 onChange={(e) => setIsActive?.(e.target.checked)}
                 disabled={disabled}
             />
-            <span class="slider round"></span>
+            <span className="slider round"></span>
         </label>
     );
 };

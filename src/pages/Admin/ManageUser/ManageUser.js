@@ -10,6 +10,8 @@ import { IoPersonOutline } from 'react-icons/io5';
 import { getAllUsers } from '../../../services/UserService';
 
 const ManageUser = (props) => {
+    const SIZE_USERS = 8;
+
     const [showModalCreateUser, setShowModalCreateUser] = useState(false);
     const [showModalViewUser, setShowModalViewUser] = useState(false);
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
@@ -19,18 +21,37 @@ const ManageUser = (props) => {
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [selectedUser, setSelectedUser] = useState(null);
 
+    const [pageCount, setPageCount] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const [searchKeyword, setSearchKeyword] = useState('');
+
+    // Invoke when user click to request another page.
+    const handlePageClick = (event) => {
+        const selectedPage = +event.selected + 1; // vì react-paginate bắt đầu từ 0
+        setCurrentPage(event.selected);
+        getListUsers(selectedPage, searchKeyword);
+    };
+
     useEffect(() => {
-        getListUsers();
+        getListUsers(1);
     }, []);
 
-    const getListUsers = async () => {
-        let res = await getAllUsers();
-        console.log('Check res get all users: ', res);
+    const getListUsers = async (page, filter = '') => {
+        let res = await getAllUsers(page, SIZE_USERS, filter);
         if (res.data && res.data.code === 200) {
             setListUsers(res.data.data.result);
+            setPageCount(res.data.data.meta.pages);
         } else {
             setListUsers([]);
+            setPageCount(0);
         }
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        getListUsers(1, searchKeyword); // Tìm từ trang đầu tiên
+        setCurrentPage(0);
     };
 
     const handleClickBtnView = (userId) => {
@@ -59,8 +80,15 @@ const ManageUser = (props) => {
                 </div>
                 <nav className="navbar navbar-light bg-light navbar-search">
                     <CiSearch className="icon-search" />
-                    <form className="form-inline form-search">
-                        <input className="input-search" type="search" placeholder="Tìm kiếm" aria-label="Search" />
+                    <form className="form-inline form-search" onSubmit={handleSearch}>
+                        <input
+                            className="input-search"
+                            type="search"
+                            placeholder="Tìm kiếm"
+                            aria-label="Search"
+                            value={searchKeyword}
+                            onChange={(e) => setSearchKeyword(e.target.value)}
+                        />
                     </form>
                 </nav>
                 <div className="btn-add-new">
@@ -77,6 +105,9 @@ const ManageUser = (props) => {
                         handleClickBtnUpdate={handleClickBtnUpdate}
                         handleClickBtnDelete={handleClickBtnDelete}
                         listUsers={listUsers}
+                        getListUsers={getListUsers}
+                        pageCount={pageCount}
+                        handlePageClick={handlePageClick}
                     />
                 </div>
                 <ModalCreateUser
