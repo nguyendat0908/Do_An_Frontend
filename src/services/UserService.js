@@ -9,7 +9,7 @@ const createUser = (username, email, password, address, phone, isActive, image) 
     data.append('phone', phone);
     data.append('active', isActive ? 'true' : 'false');
     if (image && image.name) {
-        data.append('avatar', image);
+        data.append('imageUrl', image);
     }
 
     return axios.post('api/v1/users', data, {

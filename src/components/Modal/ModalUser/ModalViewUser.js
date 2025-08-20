@@ -84,7 +84,7 @@ const ModalViewUser = (props) => {
                             <ButtonToggle isActive={userData?.active} disabled />
                         </div>
                         <div className="col-md-12 img-preview" style={{ position: 'relative', minHeight: '220px' }}>
-                            {userData?.avatar ? <img src={userData.avatar} alt="avatar" /> : <span>Ảnh xem trước</span>}
+                            {userData?.imageUrl ? <img src={userData.imageUrl} alt="avatar" /> : <span>Ảnh xem trước</span>}
                         </div>
                     </form>
                 </Modal.Body>

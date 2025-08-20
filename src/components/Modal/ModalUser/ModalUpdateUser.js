@@ -16,10 +16,10 @@ const ModalUpdateUser = (props) => {
     };
 
     useEffect(() => {
-        if (user) {
-            setIsActive(user.active); // Lấy trạng thái khi modal mở
+        if (user && show) {
+            setIsActive(user.active);
         }
-    }, [user]);
+    }, [user, show]);
 
     const handleUpdateUser = async () => {
         try {

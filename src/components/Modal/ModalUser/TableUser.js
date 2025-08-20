@@ -31,7 +31,7 @@ const TableUser = (props) => {
                                     <td>
                                         <div className="user-info">
                                             <div>
-                                                <img className="avatar-user" src={item.avatar} />
+                                                <img className="avatar-user" src={item.imageUrl} />
                                             </div>
                                             <div className="user-info-detail">
                                                 <span className="user-name">{item.name}</span>
@@ -70,7 +70,7 @@ const TableUser = (props) => {
                     Không có dữ liệu ...
                 </div>
             )}
-            <div className='pagination-container d-flex justify-content-center'>
+            <div className="pagination-container d-flex justify-content-center">
                 <DataPagination pageCount={props.pageCount} handlePageClick={props.handlePageClick} />
             </div>
         </>
